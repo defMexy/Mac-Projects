@@ -114,3 +114,195 @@
         });
     }
 })();
+
+/* =========================================================
+   Portfolio Gallery Modal (popup slideshow + fullscreen)
+========================================================= */
+
+(function () {
+    const qs = (s, el = document) => el.querySelector(s);
+    const qsa = (s, el = document) => Array.from(el.querySelectorAll(s));
+
+    const modal = qs("[data-modal]");
+    if (!modal) return;
+
+    const dialog = qs(".modal-dialog", modal);
+    const imgEl = qs("[data-modal-image]", modal);
+    const titleEl = qs("[data-modal-title]", modal);
+    const locEl = qs("[data-modal-location]", modal);
+    const typeEl = qs("[data-modal-type]", modal);
+    const idxEl = qs("[data-index]", modal);
+    const totalEl = qs("[data-total]", modal);
+    const thumbsWrap = qs("[data-thumbs]", modal);
+
+    const btnPrev = qs("[data-prev]", modal);
+    const btnNext = qs("[data-next]", modal);
+    const btnClose = qsa("[data-close-modal]", modal);
+    const btnFs = qs("[data-fullscreen]", modal);
+
+    let images = [];
+    let index = 0;
+    let lastFocus = null;
+
+    const lockScroll = (lock) => {
+        document.documentElement.style.overflow = lock ? "hidden" : "";
+        document.body.style.overflow = lock ? "hidden" : "";
+    };
+
+    const parseImages = (str) =>
+        (str || "")
+            .split(",")
+            .map(s => s.trim())
+            .filter(Boolean);
+
+    const setActiveThumb = () => {
+        const thumbs = qsa(".thumb", thumbsWrap);
+        thumbs.forEach((t, i) => t.classList.toggle("is-active", i === index));
+        const active = thumbs[index];
+        if (active) active.scrollIntoView({ block: "nearest", inline: "nearest" });
+    };
+
+    const renderThumbs = () => {
+        thumbsWrap.innerHTML = "";
+        images.forEach((src, i) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "thumb" + (i === index ? " is-active" : "");
+            b.setAttribute("aria-label", `Ga naar foto ${i + 1}`);
+            b.innerHTML = `<img src="${src}" alt="" loading="lazy" decoding="async">`;
+            b.addEventListener("click", () => {
+                index = i;
+                render();
+            });
+            thumbsWrap.appendChild(b);
+        });
+    };
+
+    const updateNavState = () => {
+        btnPrev.disabled = images.length <= 1;
+        btnNext.disabled = images.length <= 1;
+    };
+
+    const render = () => {
+        if (!images.length) return;
+        imgEl.src = images[index];
+        imgEl.alt = `${titleEl.textContent || "Case"} — foto ${index + 1} van ${images.length}`;
+        idxEl.textContent = String(index + 1);
+        totalEl.textContent = String(images.length);
+        setActiveThumb();
+        updateNavState();
+    };
+
+    const openModal = (card) => {
+        lastFocus = document.activeElement;
+
+        const title = card.getAttribute("data-title") || "Case";
+        const loc = card.getAttribute("data-location") || "";
+        const type = card.getAttribute("data-type") || "";
+        images = parseImages(card.getAttribute("data-images"));
+        index = 0;
+
+        titleEl.textContent = title;
+        locEl.textContent = loc;
+        typeEl.textContent = type || "—";
+
+        renderThumbs();
+        render();
+
+        modal.hidden = false;
+        lockScroll(true);
+
+        // Focus dialog for accessibility
+        window.setTimeout(() => dialog.focus?.(), 0);
+        dialog.setAttribute("tabindex", "-1");
+    };
+
+    const closeModal = async () => {
+        // Exit fullscreen if active
+        if (document.fullscreenElement) {
+            try { await document.exitFullscreen(); } catch (_) {}
+        }
+
+        modal.hidden = true;
+        lockScroll(false);
+
+        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+    };
+
+    const next = () => {
+        if (!images.length) return;
+        index = (index + 1) % images.length;
+        render();
+    };
+
+    const prev = () => {
+        if (!images.length) return;
+        index = (index - 1 + images.length) % images.length;
+        render();
+    };
+
+    // Bind open buttons inside cards
+    qsa("[data-open-gallery]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const card = btn.closest("[data-gallery]");
+            if (card) openModal(card);
+        });
+    });
+
+    // Close handlers
+    btnClose.forEach(b => b.addEventListener("click", closeModal));
+
+    // Backdrop click closes
+    qs(".modal-backdrop", modal)?.addEventListener("click", closeModal);
+
+    // Nav handlers
+    btnNext.addEventListener("click", next);
+    btnPrev.addEventListener("click", prev);
+
+    // Keyboard: esc closes, arrows navigate
+    document.addEventListener("keydown", (e) => {
+        if (modal.hidden) return;
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+    });
+
+    // Fullscreen toggle
+    btnFs?.addEventListener("click", async () => {
+        try {
+            if (!document.fullscreenElement) await dialog.requestFullscreen();
+            else await document.exitFullscreen();
+        } catch (_) {
+            // silently ignore
+        }
+    });
+
+    // Basic swipe for mobile
+    let startX = 0;
+    let startY = 0;
+    let active = false;
+
+    const onStart = (x, y) => { startX = x; startY = y; active = true; };
+    const onEnd = (x, y) => {
+        if (!active) return;
+        active = false;
+        const dx = x - startX;
+        const dy = y - startY;
+        if (Math.abs(dx) > 40 && Math.abs(dy) < 40) {
+            if (dx < 0) next();
+            else prev();
+        }
+    };
+
+    dialog.addEventListener("touchstart", (e) => {
+        if (modal.hidden) return;
+        const t = e.touches[0];
+        if (t) onStart(t.clientX, t.clientY);
+    }, { passive: true });
+
+    dialog.addEventListener("touchend", (e) => {
+        if (modal.hidden) return;
+        const t = e.changedTouches[0];
+        if (t) onEnd(t.clientX, t.clientY);
+    }, { passive: true });
+})();

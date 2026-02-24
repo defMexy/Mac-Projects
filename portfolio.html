@@ -12,7 +12,7 @@
     <meta property="og:description" content="Cases in Nederland. Interieur, exterieur, horeca, particulier en zakelijk." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="nl_NL" />
-    <meta property="og:image" content="assets/featured-case.jpg" />
+    <meta property="og:image" content="assets/images/hero/featured-case.jpg" />
 
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/styles.css" />
@@ -24,7 +24,7 @@
 <header class="site-header" data-header>
     <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="MAC Projects — Home">
-            <img class="brand-mark" src="assets/logo.svg" alt="MAC Projects logo" width="28" height="28" />
+            <img class="brand-mark" src="assets/logo.svg" alt="MAC Projects logo" />
             <span class="brand-name">MAC Projects</span>
         </a>
 
@@ -66,23 +66,31 @@
                 <button class="filter" type="button" data-filter="zakelijk" aria-pressed="false">Zakelijk</button>
             </div>
 
-            <p class="muted small">Tip: filters zijn optioneel. Als je scrolt zie je het geheel.</p>
         </div>
     </section>
 
     <section id="cases" class="section" aria-label="Cases">
         <div class="container">
             <!--
-              Developer note — add new case:
+              Developer note — add new case (met slideshow):
               1) Duplicate a .case-card below
               2) Update data-tags (space-separated)
-              3) Replace image in /assets/
-              4) Keep title + one-liner concise; details belong in tags/meta
+              3) Update data-title + data-location + data-type
+              4) Set data-images to comma-separated image paths (01.jpg,02.jpg,...)
+              5) First image is the card cover (keep <img src="..."> in sync with the first image)
             -->
 
             <div class="case-grid" data-case-grid>
-                <article class="case-card" data-tags="interieur horeca">
-                    <img src="assets/case-1.jpg" alt="Het Warenhuis (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="interieur horeca"
+                         data-gallery
+                         data-title="Het Warenhuis"
+                         data-location="Restaurant · Den Bosch"
+                         data-type="Interieur · Horeca"
+                         data-images="assets/images/cases/het-warenhuis/01.jpg,assets/images/cases/het-warenhuis/02.jpg,assets/images/cases/het-warenhuis/03.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: Het Warenhuis">
+                        <img src="assets/images/cases/het-warenhuis/01.jpg" alt="Het Warenhuis (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">Het Warenhuis</h2>
                         <p class="muted">Restaurant · Den Bosch</p>
@@ -94,8 +102,16 @@
                     </div>
                 </article>
 
-                <article class="case-card" data-tags="interieur zakelijk">
-                    <img src="assets/case-2.jpg" alt="Kickfood Services (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="interieur zakelijk"
+                         data-gallery
+                         data-title="Kickfood Services"
+                         data-location="Cateraar · Oosterhout"
+                         data-type="Interieur · Zakelijk"
+                         data-images="assets/images/cases/kickfood-services/01.jpg,assets/images/cases/kickfood-services/02.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: Kickfood Services">
+                        <img src="assets/images/cases/kickfood-services/01.jpg" alt="Kickfood Services (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">Kickfood Services</h2>
                         <p class="muted">Cateraar · Oosterhout</p>
@@ -107,8 +123,37 @@
                     </div>
                 </article>
 
-                <article class="case-card" data-tags="interieur horeca">
-                    <img src="assets/case-3.jpg" alt="De Hemel (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="interieur exterieur zakelijk"
+                         data-gallery
+                         data-title="Aannemer Hoefnagels"
+                         data-location="Cateraar · Kaatsheuvel"
+                         data-type="Interieur/Exterieur · Zakelijk"
+                         data-images="assets/images/cases/aannemer-hoefnagels/01.jpg,assets/images/cases/aannemer-hoefnagels/02.jpg,assets/images/cases/aannemer-hoefnagels/03.jpg,assets/images/cases/aannemer-hoefnagels/04.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: Aannemer Hoefnagels">
+                        <img src="assets/images/cases/aannemer-hoefnagels/01.jpg" alt="Aannemer Hoefnagels (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
+                    <div class="case-content">
+                        <h2 class="h3">Aannemer Hoefnagels</h2>
+                        <p class="muted">Cateraar · Kaatsheuvel</p>
+                        <p>Interieur met uiteenlopende herinneringen</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur/Exterieur</li>
+                            <li><strong>Sector:</strong> Zakelijk</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="interieur horeca"
+                         data-gallery
+                         data-title="De Hemel"
+                         data-location="Restaurant · Hilvarenbeek"
+                         data-type="Interieur · Horeca"
+                         data-images="assets/images/cases/de-hemel/01.jpg,assets/images/cases/de-hemel/02.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: De Hemel">
+                        <img src="assets/images/cases/de-hemel/01.jpg" alt="De Hemel (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">De Hemel</h2>
                         <p class="muted">Restaurant · Hilvarenbeek</p>
@@ -120,8 +165,16 @@
                     </div>
                 </article>
 
-                <article class="case-card" data-tags="interieur horeca">
-                    <img src="assets/case-4.jpg" alt="De Zwaan (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="interieur horeca"
+                         data-gallery
+                         data-title="De Zwaan"
+                         data-location="Restaurant · Hilvarenbeek"
+                         data-type="Interieur · Horeca"
+                         data-images="assets/images/cases/de-zwaan/01.jpg,assets/images/cases/de-zwaan/02.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: De Zwaan">
+                        <img src="assets/images/cases/de-zwaan/01.jpg" alt="De Zwaan (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">De Zwaan</h2>
                         <p class="muted">Restaurant · Hilvarenbeek</p>
@@ -133,8 +186,16 @@
                     </div>
                 </article>
 
-                <article class="case-card" data-tags="interieur horeca">
-                    <img src="assets/case-5.jpg" alt="IJzerenman (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="interieur horeca"
+                         data-gallery
+                         data-title="IJzerenman"
+                         data-location="Restaurant · Vught"
+                         data-type="Interieur · Horeca"
+                         data-images="assets/images/cases/ijzerenman/01.jpg,assets/images/cases/ijzerenman/02.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: IJzerenman">
+                        <img src="assets/images/cases/ijzerenman/01.jpg" alt="IJzerenman (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">IJzerenman</h2>
                         <p class="muted">Restaurant · Vught</p>
@@ -146,8 +207,16 @@
                     </div>
                 </article>
 
-                <article class="case-card" data-tags="exterieur zakelijk">
-                    <img src="assets/case-6.jpg" alt="Gubbels (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="exterieur zakelijk"
+                         data-gallery
+                         data-title="Gubbels"
+                         data-location="Grondverzet & sloop · Helvoirt"
+                         data-type="Exterieur · Zakelijk"
+                         data-images="assets/images/cases/gubbels/01.jpg,assets/images/cases/gubbels/02.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: Gubbels">
+                        <img src="assets/images/cases/gubbels/01.jpg" alt="Gubbels (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">Gubbels</h2>
                         <p class="muted">Grondverzet & sloop · Helvoirt</p>
@@ -159,8 +228,16 @@
                     </div>
                 </article>
 
-                <article class="case-card" data-tags="interieur exterieur particulier">
-                    <img src="assets/case-7.jpg" alt="Familie Vermeer (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="interieur exterieur particulier"
+                         data-gallery
+                         data-title="Familie Vermeer"
+                         data-location="Boerderij · Nederland"
+                         data-type="Interieur/Exterieur · Particulier"
+                         data-images="assets/images/cases/familie-vermeer/01.jpg,assets/images/cases/familie-vermeer/02.jpg,assets/images/cases/familie-vermeer/03.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: Familie Vermeer">
+                        <img src="assets/images/cases/familie-vermeer/01.jpg" alt="Familie Vermeer (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">Familie Vermeer</h2>
                         <p class="muted">Boerderij · Nederland</p>
@@ -172,8 +249,16 @@
                     </div>
                 </article>
 
-                <article class="case-card" data-tags="interieur exterieur particulier">
-                    <img src="assets/case-8.jpg" alt="Familie Hendriks (placeholder)" loading="lazy" decoding="async" />
+                <article class="case-card" data-tags="interieur exterieur particulier"
+                         data-gallery
+                         data-title="Familie Hendriks"
+                         data-location="Gastenverblijf + woningupgrade · Nederland"
+                         data-type="Interieur/Exterieur · Particulier"
+                         data-images="assets/images/cases/familie-hendriks/01.jpg,assets/images/cases/familie-hendriks/02.jpg">
+                    <button class="case-media-btn" type="button" data-open-gallery aria-label="Open galerij: Familie Hendriks">
+                        <img src="assets/images/cases/familie-hendriks/01.jpg" alt="Familie Hendriks (placeholder)" loading="lazy" decoding="async" />
+                        <span class="case-media-overlay" aria-hidden="true">Bekijk foto’s</span>
+                    </button>
                     <div class="case-content">
                         <h2 class="h3">Familie Hendriks</h2>
                         <p class="muted">Gastenverblijf + woningupgrade · Nederland</p>
@@ -204,38 +289,47 @@
     </div>
 </aside>
 
-<footer class="site-footer">
-    <div class="container footer-grid">
-        <div>
-            <div class="brand brand-footer">
-                <img class="brand-mark" src="assets/logo.svg" alt="" width="24" height="24" />
-                <span class="brand-name">MAC Projects</span>
+<!-- Gallery Modal -->
+<div class="modal" data-modal hidden>
+    <div class="modal-backdrop" data-close-modal aria-hidden="true"></div>
+
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-label="Case galerij">
+        <header class="modal-head">
+            <div class="modal-titles">
+                <p class="modal-kicker" data-modal-type>—</p>
+                <h2 class="modal-title" data-modal-title>—</h2>
+                <p class="modal-sub muted" data-modal-location>—</p>
             </div>
-            <p class="muted footer-line">Portfolio · ontwerp · visualisaties · haalbaarheid</p>
+
+            <div class="modal-actions">
+                <button class="icon-btn" type="button" data-fullscreen aria-label="Fullscreen">
+                    ⤢
+                </button>
+                <button class="icon-btn" type="button" data-close-modal aria-label="Sluit (Esc)">
+                    ✕
+                </button>
+            </div>
+        </header>
+
+        <div class="modal-body">
+            <button class="nav-btn nav-prev" type="button" data-prev aria-label="Vorige foto">‹</button>
+
+            <figure class="modal-figure">
+                <img data-modal-image src="" alt="" />
+                <figcaption class="modal-counter muted small">
+                    <span data-index>1</span>/<span data-total>1</span>
+                </figcaption>
+            </figure>
+
+            <button class="nav-btn nav-next" type="button" data-next aria-label="Volgende foto">›</button>
         </div>
 
-        <nav class="footer-nav" aria-label="Footer navigatie">
-            <a href="index.html">Home</a>
-            <a href="over.html">Over</a>
-            <a href="portfolio.html" aria-current="page">Portfolio</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <div class="footer-meta">
-            <p><strong>Contact</strong></p>
-            <p class="muted">
-                E-mail: <a href="mailto:info@macprojects.nl">info@macprojects.nl</a><br />
-                Telefoon: <a href="tel:+31625073922">+31 6 25 07 39 22</a><br />
-                Nederland
-            </p>
-        </div>
+        <footer class="modal-foot">
+            <div class="thumbs" data-thumbs aria-label="Thumbnails"></div>
+            <p class="muted small modal-hint">Tip: gebruik ← → of swipe. Esc sluit.</p>
+        </footer>
     </div>
-
-    <div class="container footer-bottom">
-        <p class="muted">© <span data-year></span> MAC Projects</p>
-        <p class="muted"><a href="#" aria-label="Privacy placeholder">Privacy</a></p>
-    </div>
-</footer>
+</div>
 
 <script src="assets/script.js" defer></script>
 </body>
