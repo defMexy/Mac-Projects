@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B0D12" />
+
+    <title>Contact — MAC Projects • Plan een intake</title>
+    <meta name="description" content="Neem contact op met MAC Projects voor interieur ontwerp, exterieur ontwerp, visualisaties of haalbaarheidsstudie. Reactie binnen 1–2 werkdagen." />
+
+    <meta property="og:title" content="Contact — MAC Projects" />
+    <meta property="og:description" content="Plan een korte intake. Vertel je doel. Wij maken de mogelijkheden zichtbaar." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:image" content="assets/hero.jpg" />
+
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+<a class="skip-link" href="#main">Sla navigatie over</a>
+
+<header class="site-header" data-header>
+    <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="MAC Projects — Home">
+            <img class="brand-mark" src="assets/logo.svg" alt="MAC Projects logo" width="28" height="28" />
+            <span class="brand-name">MAC Projects</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Hoofdnavigatie">
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+                <span class="nav-toggle-icon" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-list" data-nav-list>
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="over.html">Over</a></li>
+                <li><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                <li><a class="nav-link is-active" href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-cta">
+            <a class="btn btn-primary" href="#contact-form">Naar formulier</a>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    <section class="page-hero" aria-label="Contact intro">
+        <div class="container">
+            <p class="kicker">Contact</p>
+            <h1>Vertel je doel. Wij maken het zichtbaar.</h1>
+            <p class="lead">
+                Kort is genoeg. Als we je context begrijpen, kunnen we de beste volgende stap definiëren.
+            </p>
+
+            <div class="grid grid-2 mt">
+                <article class="card card-quiet">
+                    <h2 class="h3">Reactietijd & privacy</h2>
+                    <p class="muted">
+                        Reactie binnen <strong>1–2 werkdagen</strong>.<br />
+                        Je gegevens gebruiken we uitsluitend om te reageren op je aanvraag.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h2 class="h3">Direct contact</h2>
+                    <p class="muted">
+                        E-mail: <a href="mailto:info@macprojects.nl">info@macprojects.nl</a><br />
+                        Telefoon: <a href="tel:+31625073922">+31 6 25 07 39 22</a><br />
+                        Nederland
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-muted" aria-label="Formulier">
+        <div class="container">
+            <div class="section-head">
+                <h2 id="contact-form">Contactformulier</h2>
+                <p class="sub">Vul in wat je weet. Wij vragen alleen door waar nodig.</p>
+            </div>
+
+            <div class="form-wrap">
+                <form class="form" data-contact-form novalidate>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="name">Naam</label>
+                            <input id="name" name="name" type="text" autocomplete="name" required />
+                        </div>
+
+                        <div class="field">
+                            <label for="email">E-mail</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required />
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Telefoon <span class="muted">(optioneel)</span></label>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+                        </div>
+
+                        <div class="field">
+                            <label for="type">Project type</label>
+                            <select id="type" name="type" required>
+                                <option value="" selected disabled>Kies</option>
+                                <option>Interieur ontwerp</option>
+                                <option>Exterieur ontwerp</option>
+                                <option>Visualisaties</option>
+                                <option>Haalbaarheidsstudie</option>
+                                <option>Combinatie</option>
+                            </select>
+                        </div>
+
+                        <div class="field field-full">
+                            <label for="message">Bericht</label>
+                            <textarea id="message" name="message" rows="6" required
+                                      placeholder="Locatie, doel, timing, wat al vaststaat. Eventueel een link naar foto's / plattegrond."></textarea>
+                            <p class="muted small">Tip: voeg een link naar een map of WeTransfer toe als je al materiaal hebt.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary" type="submit">Verstuur</button>
+                        <p class="muted small">
+                            Door te versturen ga je akkoord dat we je gegevens gebruiken om contact op te nemen over je aanvraag.
+                        </p>
+                    </div>
+
+                    <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+                </form>
+
+                <aside class="aside" aria-label="Wat je ontvangt">
+                    <div class="card card-quiet">
+                        <h3>Wat je daarna krijgt</h3>
+                        <ol class="mini">
+                            <li><strong>Scope & aanpak</strong> (wat, waarom, output)</li>
+                            <li><strong>Voorstel</strong> met stappen en planning</li>
+                            <li><strong>Duidelijke next step</strong> om te starten</li>
+                        </ol>
+                        <p class="muted small">Geen sales. Wel richting.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+</main>
+
+<a class="mobile-cta" href="#contact-form" aria-label="Naar contactformulier">Formulier</a>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <div class="brand brand-footer">
+                <img class="brand-mark" src="assets/logo.svg" alt="" width="24" height="24" />
+                <span class="brand-name">MAC Projects</span>
+            </div>
+            <p class="muted footer-line">Ontwerp · visualisaties · haalbaarheid</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigatie">
+            <a href="index.html">Home</a>
+            <a href="over.html">Over</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html" aria-current="page">Contact</a>
+        </nav>
+
+        <div class="footer-meta">
+            <p><strong>Contact</strong></p>
+            <p class="muted">
+                E-mail: <a href="mailto:info@macprojects.nl">info@macprojects.nl</a><br />
+                Telefoon: <a href="tel:+31625073922">+31 6 25 07 39 22</a><br />
+                Nederland
+            </p>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <p class="muted">© <span data-year></span> MAC Projects</p>
+        <p class="muted"><a href="#" aria-label="Privacy placeholder">Privacy</a></p>
+    </div>
+</footer>
+
+<script src="assets/script.js" defer></script>
+</body>
+</html>

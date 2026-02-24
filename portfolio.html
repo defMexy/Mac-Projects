@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B0D12" />
+
+    <title>Portfolio — MAC Projects • Interieur, Exterieur & Visualisaties</title>
+    <meta name="description" content="Portfolio van MAC Projects: interieur ontwerp, exterieur ontwerp, visualisaties en haalbaarheidsstudie. Filters op Interieur/Exterieur/Horeca/Particulier/Zakelijk." />
+
+    <meta property="og:title" content="Portfolio — MAC Projects" />
+    <meta property="og:description" content="Cases in Nederland. Interieur, exterieur, horeca, particulier en zakelijk." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:image" content="assets/featured-case.jpg" />
+
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+<a class="skip-link" href="#main">Sla navigatie over</a>
+
+<header class="site-header" data-header>
+    <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="MAC Projects — Home">
+            <img class="brand-mark" src="assets/logo.svg" alt="MAC Projects logo" width="28" height="28" />
+            <span class="brand-name">MAC Projects</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Hoofdnavigatie">
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+                <span class="nav-toggle-icon" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-list" data-nav-list>
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="over.html">Over</a></li>
+                <li><a class="nav-link is-active" href="portfolio.html" aria-current="page">Portfolio</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-cta">
+            <a class="btn btn-primary" href="contact.html">Plan intake</a>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    <section class="page-hero" aria-label="Portfolio intro">
+        <div class="container">
+            <p class="kicker">Portfolio</p>
+            <h1>Cases. Niet als showreel, maar als bewijs.</h1>
+            <p class="lead">
+                Interieur ontwerp, exterieur ontwerp, visualisaties en haalbaarheidsstudie.
+                Selecteer een filter om sneller relevante voorbeelden te zien.
+            </p>
+
+            <div class="filters" role="toolbar" aria-label="Filter cases">
+                <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Alles</button>
+                <button class="filter" type="button" data-filter="interieur" aria-pressed="false">Interieur</button>
+                <button class="filter" type="button" data-filter="exterieur" aria-pressed="false">Exterieur</button>
+                <button class="filter" type="button" data-filter="horeca" aria-pressed="false">Horeca</button>
+                <button class="filter" type="button" data-filter="particulier" aria-pressed="false">Particulier</button>
+                <button class="filter" type="button" data-filter="zakelijk" aria-pressed="false">Zakelijk</button>
+            </div>
+
+            <p class="muted small">Tip: filters zijn optioneel. Als je scrolt zie je het geheel.</p>
+        </div>
+    </section>
+
+    <section id="cases" class="section" aria-label="Cases">
+        <div class="container">
+            <!--
+              Developer note — add new case:
+              1) Duplicate a .case-card below
+              2) Update data-tags (space-separated)
+              3) Replace image in /assets/
+              4) Keep title + one-liner concise; details belong in tags/meta
+            -->
+
+            <div class="case-grid" data-case-grid>
+                <article class="case-card" data-tags="interieur horeca">
+                    <img src="assets/case-1.jpg" alt="Het Warenhuis (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">Het Warenhuis</h2>
+                        <p class="muted">Restaurant · Den Bosch</p>
+                        <p>Interieur visualisaties die routing en sfeer in één beeld vangen.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur</li>
+                            <li><strong>Sector:</strong> Horeca</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="interieur zakelijk">
+                    <img src="assets/case-2.jpg" alt="Kickfood Services (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">Kickfood Services</h2>
+                        <p class="muted">Cateraar · Oosterhout</p>
+                        <p>Een functionele indeling die ook het merkgevoel ondersteunt.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur</li>
+                            <li><strong>Sector:</strong> Zakelijk</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="interieur horeca">
+                    <img src="assets/case-3.jpg" alt="De Hemel (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">De Hemel</h2>
+                        <p class="muted">Restaurant · Hilvarenbeek</p>
+                        <p>Premium sfeer, strak uitgewerkt in materialen en details.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur</li>
+                            <li><strong>Sector:</strong> Horeca</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="interieur horeca">
+                    <img src="assets/case-4.jpg" alt="De Zwaan (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">De Zwaan</h2>
+                        <p class="muted">Restaurant · Hilvarenbeek</p>
+                        <p>Renovatie met behoud van karakter, zonder ouderwets te worden.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur</li>
+                            <li><strong>Sector:</strong> Horeca</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="interieur horeca">
+                    <img src="assets/case-5.jpg" alt="IJzerenman (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">IJzerenman</h2>
+                        <p class="muted">Restaurant · Vught</p>
+                        <p>Haalbaarheid en flow: gastbeleving én operatie moeten kloppen.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur</li>
+                            <li><strong>Sector:</strong> Horeca</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="exterieur zakelijk">
+                    <img src="assets/case-6.jpg" alt="Gubbels (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">Gubbels</h2>
+                        <p class="muted">Grondverzet & sloop · Helvoirt</p>
+                        <p>Exterieur ontwerp met focus op functie, logistiek en uitstraling.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Exterieur</li>
+                            <li><strong>Sector:</strong> Zakelijk</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="interieur exterieur particulier">
+                    <img src="assets/case-7.jpg" alt="Familie Vermeer (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">Familie Vermeer</h2>
+                        <p class="muted">Boerderij · Nederland</p>
+                        <p>Exterieur & interieur als één samenhangend ontwerpverhaal.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur/Exterieur</li>
+                            <li><strong>Sector:</strong> Particulier</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="case-card" data-tags="interieur exterieur particulier">
+                    <img src="assets/case-8.jpg" alt="Familie Hendriks (placeholder)" loading="lazy" decoding="async" />
+                    <div class="case-content">
+                        <h2 class="h3">Familie Hendriks</h2>
+                        <p class="muted">Gastenverblijf + woningupgrade · Nederland</p>
+                        <p>Upgrade met duidelijke keuzes in comfort, licht en indeling.</p>
+                        <ul class="case-meta">
+                            <li><strong>Type:</strong> Interieur/Exterieur</li>
+                            <li><strong>Sector:</strong> Particulier</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <div class="cta-row">
+                <p class="muted">Wil je weten wat er in jouw project mogelijk is? Stuur je vraag. We reageren binnen 1–2 werkdagen.</p>
+                <a class="btn btn-primary" href="contact.html">Plan intake</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<a class="mobile-cta" href="contact.html" aria-label="Plan intake">Plan intake</a>
+
+<aside class="sticky-cta" aria-label="Plan intake (desktop)">
+    <div class="sticky-cta-inner">
+        <p class="sticky-title">Plan een intake</p>
+        <p class="sticky-sub">Kort. Concreet. Binnen 1–2 werkdagen reactie.</p>
+        <a class="btn btn-primary btn-sm" href="contact.html">Start</a>
+    </div>
+</aside>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <div class="brand brand-footer">
+                <img class="brand-mark" src="assets/logo.svg" alt="" width="24" height="24" />
+                <span class="brand-name">MAC Projects</span>
+            </div>
+            <p class="muted footer-line">Portfolio · ontwerp · visualisaties · haalbaarheid</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigatie">
+            <a href="index.html">Home</a>
+            <a href="over.html">Over</a>
+            <a href="portfolio.html" aria-current="page">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="footer-meta">
+            <p><strong>Contact</strong></p>
+            <p class="muted">
+                E-mail: <a href="mailto:info@macprojects.nl">info@macprojects.nl</a><br />
+                Telefoon: <a href="tel:+31625073922">+31 6 25 07 39 22</a><br />
+                Nederland
+            </p>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <p class="muted">© <span data-year></span> MAC Projects</p>
+        <p class="muted"><a href="#" aria-label="Privacy placeholder">Privacy</a></p>
+    </div>
+</footer>
+
+<script src="assets/script.js" defer></script>
+</body>
+</html>
