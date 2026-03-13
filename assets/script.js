@@ -1,20 +1,10 @@
-/* MAC Projects — minimal JS
-   - Mobile nav toggle
-   - Header elevate on scroll
-   - Portfolio filter
-   - Contact form success state (front-end only)
-   - Footer year
-*/
-
 (function () {
     const qs = (s, el = document) => el.querySelector(s);
     const qsa = (s, el = document) => Array.from(el.querySelectorAll(s));
 
-    // Footer year
     const yearEl = qs("[data-year]");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-    // Header elevate
     const header = qs("[data-header]");
     const onScroll = () => {
         if (!header) return;
@@ -23,7 +13,6 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    // Mobile nav
     const toggle = qs("[data-nav-toggle]");
     const navList = qs("[data-nav-list]");
     if (toggle && navList) {
@@ -56,7 +45,6 @@
         });
     }
 
-    // Portfolio filtering
     const chips = qsa("[data-filter]");
     const grid = qs("[data-case-grid]");
     if (chips.length && grid) {
@@ -87,7 +75,6 @@
         });
     }
 
-    // Contact form (front-end success only)
     const form = qs("[data-contact-form]");
     const status = qs("[data-form-status]");
     if (form && status) {
@@ -115,10 +102,6 @@
     }
 })();
 
-/* =========================================================
-   Portfolio Gallery Modal (popup slideshow + fullscreen)
-========================================================= */
-
 (function () {
     const qs = (s, el = document) => el.querySelector(s);
     const qsa = (s, el = document) => Array.from(el.querySelectorAll(s));
@@ -134,11 +117,15 @@
     const idxEl = qs("[data-index]", modal);
     const totalEl = qs("[data-total]", modal);
     const thumbsWrap = qs("[data-thumbs]", modal);
+    const thumbsViewport = qs(".thumbs-viewport", modal);
 
     const btnPrev = qs("[data-prev]", modal);
     const btnNext = qs("[data-next]", modal);
     const btnClose = qsa("[data-close-modal]", modal);
     const btnFs = qs("[data-fullscreen]", modal);
+
+    const thumbsPrev = qs("[data-thumbs-prev]", modal);
+    const thumbsNext = qs("[data-thumbs-next]", modal);
 
     let images = [];
     let index = 0;
@@ -152,29 +139,67 @@
     const parseImages = (str) =>
         (str || "")
             .split(",")
-            .map(s => s.trim())
+            .map((s) => s.trim())
             .filter(Boolean);
 
     const setActiveThumb = () => {
         const thumbs = qsa(".thumb", thumbsWrap);
         thumbs.forEach((t, i) => t.classList.toggle("is-active", i === index));
+
         const active = thumbs[index];
-        if (active) active.scrollIntoView({ block: "nearest", inline: "nearest" });
+        if (active) {
+            active.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center"
+            });
+        }
+    };
+
+    const updateThumbButtons = () => {
+        if (!thumbsViewport) return;
+
+        const maxScroll = thumbsViewport.scrollWidth - thumbsViewport.clientWidth;
+        const atStart = thumbsViewport.scrollLeft <= 4;
+        const atEnd = thumbsViewport.scrollLeft >= maxScroll - 4;
+
+        if (thumbsPrev) thumbsPrev.disabled = atStart;
+        if (thumbsNext) thumbsNext.disabled = atEnd || maxScroll <= 0;
+    };
+
+    const scrollThumbsByPage = (direction) => {
+        if (!thumbsViewport) return;
+
+        const amount = thumbsViewport.clientWidth * 0.8;
+        thumbsViewport.scrollBy({
+            left: direction * amount,
+            behavior: "smooth"
+        });
+
+        window.setTimeout(updateThumbButtons, 350);
     };
 
     const renderThumbs = () => {
         thumbsWrap.innerHTML = "";
+
         images.forEach((src, i) => {
             const b = document.createElement("button");
             b.type = "button";
             b.className = "thumb" + (i === index ? " is-active" : "");
             b.setAttribute("aria-label", `Ga naar foto ${i + 1}`);
             b.innerHTML = `<img src="${src}" alt="" loading="lazy" decoding="async">`;
+
             b.addEventListener("click", () => {
                 index = i;
                 render();
             });
+
             thumbsWrap.appendChild(b);
+        });
+
+        window.requestAnimationFrame(() => {
+            if (thumbsViewport) thumbsViewport.scrollLeft = 0;
+            updateThumbButtons();
         });
     };
 
@@ -185,10 +210,12 @@
 
     const render = () => {
         if (!images.length) return;
+
         imgEl.src = images[index];
-        imgEl.alt = `${titleEl.textContent || "Case"} — foto ${index + 1} van ${images.length}`;
+        imgEl.alt = `${titleEl.textContent || "Case"}, foto ${index + 1} van ${images.length}`;
         idxEl.textContent = String(index + 1);
         totalEl.textContent = String(images.length);
+
         setActiveThumb();
         updateNavState();
     };
@@ -204,7 +231,7 @@
 
         titleEl.textContent = title;
         locEl.textContent = loc;
-        typeEl.textContent = type || "—";
+        typeEl.textContent = type || "•";
 
         renderThumbs();
         render();
@@ -212,21 +239,24 @@
         modal.hidden = false;
         lockScroll(true);
 
-        // Focus dialog for accessibility
-        window.setTimeout(() => dialog.focus?.(), 0);
         dialog.setAttribute("tabindex", "-1");
+        window.setTimeout(() => dialog.focus?.(), 0);
     };
 
     const closeModal = async () => {
-        // Exit fullscreen if active
         if (document.fullscreenElement) {
-            try { await document.exitFullscreen(); } catch (_) {}
+            try {
+                await document.exitFullscreen();
+            } catch (_) {
+            }
         }
 
         modal.hidden = true;
         lockScroll(false);
 
-        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+        if (lastFocus && typeof lastFocus.focus === "function") {
+            lastFocus.focus();
+        }
     };
 
     const next = () => {
@@ -241,7 +271,6 @@
         render();
     };
 
-    // Bind open buttons inside cards
     qsa("[data-open-gallery]").forEach((btn) => {
         btn.addEventListener("click", () => {
             const card = btn.closest("[data-gallery]");
@@ -249,45 +278,55 @@
         });
     });
 
-    // Close handlers
-    btnClose.forEach(b => b.addEventListener("click", closeModal));
-
-    // Backdrop click closes
+    btnClose.forEach((b) => b.addEventListener("click", closeModal));
     qs(".modal-backdrop", modal)?.addEventListener("click", closeModal);
 
-    // Nav handlers
     btnNext.addEventListener("click", next);
     btnPrev.addEventListener("click", prev);
 
-    // Keyboard: esc closes, arrows navigate
+    thumbsPrev?.addEventListener("click", () => {
+        scrollThumbsByPage(-1);
+    });
+
+    thumbsNext?.addEventListener("click", () => {
+        scrollThumbsByPage(1);
+    });
+
+    thumbsViewport?.addEventListener("scroll", updateThumbButtons, { passive: true });
+
     document.addEventListener("keydown", (e) => {
         if (modal.hidden) return;
+
         if (e.key === "Escape") closeModal();
         if (e.key === "ArrowRight") next();
         if (e.key === "ArrowLeft") prev();
     });
 
-    // Fullscreen toggle
     btnFs?.addEventListener("click", async () => {
         try {
             if (!document.fullscreenElement) await dialog.requestFullscreen();
             else await document.exitFullscreen();
         } catch (_) {
-            // silently ignore
         }
     });
 
-    // Basic swipe for mobile
     let startX = 0;
     let startY = 0;
     let active = false;
 
-    const onStart = (x, y) => { startX = x; startY = y; active = true; };
+    const onStart = (x, y) => {
+        startX = x;
+        startY = y;
+        active = true;
+    };
+
     const onEnd = (x, y) => {
         if (!active) return;
         active = false;
+
         const dx = x - startX;
         const dy = y - startY;
+
         if (Math.abs(dx) > 40 && Math.abs(dy) < 40) {
             if (dx < 0) next();
             else prev();
@@ -305,4 +344,9 @@
         const t = e.changedTouches[0];
         if (t) onEnd(t.clientX, t.clientY);
     }, { passive: true });
+
+    window.addEventListener("resize", () => {
+        if (modal.hidden) return;
+        updateThumbButtons();
+    });
 })();
