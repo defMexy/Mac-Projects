@@ -211,6 +211,10 @@
     const render = () => {
         if (!images.length) return;
 
+        imgEl.style.animation = "none";
+        imgEl.getBoundingClientRect(); // force reflow
+        imgEl.style.animation = "";
+
         imgEl.src = images[index];
         imgEl.alt = `${titleEl.textContent || "Case"}, foto ${index + 1} van ${images.length}`;
         idxEl.textContent = String(index + 1);
@@ -348,5 +352,71 @@
     window.addEventListener("resize", () => {
         if (modal.hidden) return;
         updateThumbButtons();
+    });
+})();
+
+/* ── Scroll-reveal animation system ───────────────────────── */
+(function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const qs  = (s, el = document) => el.querySelector(s);
+    const qsa = (s, el = document) => Array.from(el.querySelectorAll(s));
+
+    const mark = (el, delay) => {
+        if (!el || el.hasAttribute("data-anim")) return;
+        el.setAttribute("data-anim", "");
+        if (delay) el.style.transitionDelay = delay + "s";
+    };
+
+    // Stagger direct children of matching parents
+    const stagger = (parentSel, childSel, step) => {
+        qsa(parentSel).forEach(parent => {
+            qsa(":scope > " + childSel, parent).forEach((el, i) => mark(el, i * step));
+        });
+    };
+
+    stagger(".grid",      ".card",      0.09);
+    stagger(".grid",      ".case",      0.09);
+    stagger(".case-grid", ".case-card", 0.09);
+    stagger(".faq",       ".faq-item",  0.07);
+    stagger(".steps",     "li",         0.08);
+
+    // Simple fade-up elements
+    [".section-head", ".cta-row", ".form-wrap"].forEach(sel => {
+        qsa(sel).forEach(el => mark(el, 0));
+    });
+
+    // Hero editorial sequence (triggers immediately on load)
+    [
+        [".hero-topline",        0.00],
+        [".hero-editorial-copy", 0.13],
+        [".hero-rail-card",      0.22],
+    ].forEach(([sel, delay]) => qsa(sel).forEach(el => mark(el, delay)));
+
+    // Page hero sequence
+    [
+        [".page-hero .kicker",  0.00],
+        [".page-hero h1",       0.10],
+        [".page-hero .lead",    0.20],
+        [".page-hero .filters", 0.30],
+        [".page-hero .mt",      0.30],
+    ].forEach(([sel, delay]) => qsa(sel).forEach(el => mark(el, delay)));
+
+    // Observe & trigger
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.07, rootMargin: "0px 0px -40px 0px" });
+
+    qsa("[data-anim]").forEach(el => {
+        if (el.closest(".hero-editorial, .page-hero")) {
+            requestAnimationFrame(() => setTimeout(() => el.classList.add("is-visible"), 60));
+        } else {
+            observer.observe(el);
+        }
     });
 })();
