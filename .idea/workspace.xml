@@ -5,74 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b71fe434-9922-4f5a-bd9a-156e9e531117" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/28.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/33.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/34.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/35.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/10.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cases/hoge-heide/9.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/cases/de-hemel/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/cases/de-zwaan/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/cases/familie-hendriks/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/cases/familie-vermeer/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/cases/ijzerenman/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/over.html" beforeDir="false" afterPath="$PROJECT_DIR$/over.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +120,7 @@
       <workItem from="1773426978866" duration="1247000" />
       <workItem from="1773753196013" duration="1481000" />
       <workItem from="1774181130321" duration="4000" />
-      <workItem from="1775834903252" duration="2857000" />
+      <workItem from="1775834903252" duration="3765000" />
     </task>
     <servers />
   </component>
