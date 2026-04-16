@@ -864,7 +864,6 @@ textarea::placeholder {
 
 	.nav-link {
 		padding: .6rem .8rem;
-		border-radius: 999px;
 	}
 
 	.header-cta {
@@ -1134,8 +1133,6 @@ textarea::placeholder {
 	transform: translateY(0);
 }
 
-/* ── Gallery modal ─────────────────────────────────────────── */
-
 .modal[hidden] {
 	display: none;
 }
@@ -1164,7 +1161,6 @@ textarea::placeholder {
 	overflow: hidden;
 }
 
-/* Top bar */
 .modal-topbar {
 	display: flex;
 	justify-content: space-between;
@@ -1245,7 +1241,7 @@ textarea::placeholder {
 	border-color: rgba(243, 244, 246, .22);
 }
 
-/* Image stage */
+
 .modal-stage {
 	position: relative;
 	min-height: 0;
@@ -1284,7 +1280,6 @@ textarea::placeholder {
 	to   { opacity: 1; transform: scale(1); }
 }
 
-/* Nav arrows */
 .modal-nav {
 	position: absolute;
 	top: 50%;
@@ -1318,7 +1313,6 @@ textarea::placeholder {
 	cursor: default;
 }
 
-/* Thumbnail strip */
 .modal-thumbstrip {
 	display: grid;
 	grid-template-columns: 38px minmax(0, 1fr) 38px;
@@ -1393,7 +1387,6 @@ textarea::placeholder {
 	cursor: default;
 }
 
-/* Hint bar */
 .modal-hint {
 	text-align: center;
 	padding: .3rem .75rem .4rem;
@@ -1405,7 +1398,6 @@ textarea::placeholder {
 	border-top: 1px solid rgba(243, 244, 246, .05);
 }
 
-/* Mobile */
 @media (max-width: 640px) {
 	.modal-meta {
 		gap: .5rem;
@@ -1443,10 +1435,6 @@ textarea::placeholder {
 	}
 }
 
-/* ─────────────────────────────────────
-   PAGE & SCROLL ANIMATIONS
-   ───────────────────────────────────── */
-
 body {
 	animation: mac-page-enter .38s ease both;
 }
@@ -1469,10 +1457,6 @@ body {
 		transform: none;
 	}
 }
-
-/* ─────────────────────────────────────
-   HOVER MICRO-ANIMATIONS
-   ───────────────────────────────────── */
 
 .card {
 	transition: border-color var(--dur) var(--ease),
@@ -1595,10 +1579,6 @@ body {
 .btn-primary:hover {
 	box-shadow: 0 8px 28px rgba(122, 162, 255, .28);
 }
-
-/* ─────────────────────────────────────
-   FOOTER: POWERED BY
-   ───────────────────────────────────── */
 
 .footer-powered {
 	font-size: var(--small);
